@@ -1,5 +1,4 @@
-import Image from 'next/image'
-
+"use client";
 import ImageCarousel from '@/components/ImageCarousel/ImageCarousel'
 
 const getMemesData = async () => {
@@ -10,10 +9,14 @@ const getMemesData = async () => {
 export default async function MemesData() {
   const memeData = await getMemesData()
 
+  const handleImgClick = (meme) => {
+    console.log(meme)
+  }
+  
   return (
     <div>
       <h1>This is Memes Page/ Route</h1>
-      <ImageCarousel memeData={memeData} />
+      <ImageCarousel memeData={memeData}  onImgClick={handleImgClick} />
     </div>
   )
 }

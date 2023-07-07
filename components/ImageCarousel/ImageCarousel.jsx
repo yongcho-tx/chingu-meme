@@ -1,10 +1,10 @@
-"use client";
+// "use client";
 
 import React, { useState } from 'react'
 import Image from 'next/image'
 
 
-function ImageCarousel({ memeData }) {
+function ImageCarousel({ memeData , onImgClick}) {
   const [memeIndex, setMemeIndex] = useState(0)
   const chunkSize = 20;
 
@@ -19,6 +19,7 @@ function ImageCarousel({ memeData }) {
       width={100}
       height={100}
       style={{ margin: '1em' }}
+      onClick={() => {onImgClick(meme)}}
     />)
     )
 
