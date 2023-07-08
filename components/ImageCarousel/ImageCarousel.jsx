@@ -1,10 +1,8 @@
-// "use client";
-
 import React, { useState } from 'react'
 import Image from 'next/image'
 
 
-function  ImageCarousel({ memeData, onImgClick }) {
+function ImageCarousel({ memeData, onImgClick }) {
   const [memeIndex, setMemeIndex] = useState(0)
   const chunkSize = 20;
 
@@ -37,7 +35,7 @@ function  ImageCarousel({ memeData, onImgClick }) {
     <div>
       <h2>Pick an Image</h2>
       {meme}
-      {memeIndex > 0  && <button onClick={handlePrevious}>Previous {chunkSize}</button>}
+      {memeIndex > 0 && <button onClick={handlePrevious}>Previous {chunkSize}</button>}
       {memeIndex < memeData.length - chunkSize ? <button onClick={handleNext}>Next {chunkSize}</button> :
         <button onClick={handleNext}>Back to first</button>}
     </div>

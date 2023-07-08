@@ -1,36 +1,18 @@
-"use client";
-import React, { useState, useEffect } from 'react'
-
 import styles from './page.module.css'
-import ImageCarousel from '@/components/ImageCarousel/ImageCarousel'
-import MemeBuildContainer from '@/components/MemeBuildContainer/MemeBuildContainer';
+import HomeContainer from '@/components/HomeContainer/HomeContainer'
 
+const getMemesData = async () => {
+  const res = await fetch('https://api.imgflip.com/get_memes')
+  return res.json().then((memeObj) => memeObj.data.memes)
+}
 
-export default function Home() {
-  const [memeData, setMemeData] = useState([])
-  const [selectedMeme, setSelectedMeme] = useState([])
-
-  useEffect(() => {
-    async function fetchData() {
-      const raw = await fetch("https://api.imgflip.com/get_memes")
-      const data = await raw.json()
-      setMemeData(data.data.memes)
-    }
-    fetchData()
-  }, [])
-
-  
-
-  const handleImgClick = (meme) => {
-    setSelectedMeme(meme)
-  }
-if (Object.keys(memeData).length===0) { return <div>Loading...</div> }
+export default async function Home() {
+  const memeData = await getMemesData()
 
   return (
     <main className={styles.main}>
       <div className={styles.description}></div>
-      {Object.keys(memeData).length > 0 &&  <ImageCarousel memeData={memeData} onImgClick={handleImgClick} /> }
-      {Object.keys(selectedMeme).length > 0 && <MemeBuildContainer selectedMeme={selectedMeme} />}
+      <HomeContainer memeData={memeData} />
     </main>
   )
 }
