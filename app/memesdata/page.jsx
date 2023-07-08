@@ -1,5 +1,4 @@
-"use client";
-import ImageCarousel from '@/components/ImageCarousel/ImageCarousel'
+import Image from 'next/image'
 
 const getMemesData = async () => {
   const res = await fetch(`https://api.imgflip.com/get_memes`)
@@ -9,14 +8,22 @@ const getMemesData = async () => {
 export default async function MemesData() {
   const memeData = await getMemesData()
 
-  const handleImgClick = (meme) => {
-    console.log(meme)
-  }
-  
   return (
     <div>
       <h1>This is Memes Page/ Route</h1>
-      <ImageCarousel memeData={memeData}  onImgClick={handleImgClick} />
+      {memeData.map((meme) => {
+        return (
+          <div>
+            <Image
+              src={meme.url}
+              alt={meme.name}
+              width={300}
+              height={300}
+              style={{ marginBottom: '2em' }}
+            />
+          </div>
+        )
+      })}
     </div>
   )
 }
