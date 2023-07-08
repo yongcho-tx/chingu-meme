@@ -1,5 +1,5 @@
 import styles from './page.module.css'
-import HomeContainer from '@/components/HomeContainer/HomeContainer'
+import HomeContainer from '@/components/HomeContainer'
 
 const getMemesData = async () => {
   const res = await fetch('https://api.imgflip.com/get_memes')

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react'
-import ImageCarousel from '@/components/ImageCarousel/ImageCarousel'
-import MemeBuildContainer from '@/components/MemeBuildContainer/MemeBuildContainer'
+import ImageCarousel from '@/components/ImageCarousel'
+import MemeBuildContainer from '@/components/MemeBuildContainer'
 
 export default function HomeContainer({ memeData }) {
     const [selectedMeme, setSelectedMeme] = useState([])
