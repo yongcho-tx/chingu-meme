@@ -2,19 +2,17 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import {
-  AppBar,
-  Toolbar,
-  Container,
-  MenuItem,
-  Avatar,
-  Button,
-  Tooltip,
-  Menu,
-  Typography,
-  IconButton,
-  Box,
-} from '@mui/material'
+import Avatar from '@mui/material/Avatar'
+import AppBar from '@mui/material/AppBar'
+import Toolbar from '@mui/material/Toolbar'
+import Container from '@mui/material/Container'
+import MenuItem from '@mui/material/MenuItem'
+import Button from '@mui/material/Button'
+import Tooltip from '@mui/material/Tooltip'
+import Menu from '@mui/material/Menu'
+import Typography from '@mui/material/Typography'
+import IconButton from '@mui/material/IconButton'
+import Box from '@mui/material/Box'
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions'
 import MenuIcon from '@mui/icons-material/Menu'
 
