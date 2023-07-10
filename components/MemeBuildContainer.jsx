@@ -5,8 +5,9 @@ import Image from 'next/image'
 import Canvas from './Canvas'
 
 function MemeBuildContainer({ selectedMeme }) {
-  console.log(selectedMeme)
+  const [userSave, setUserSave] = useState(false)
   const [caption, setCaption] = useState({ topCaption: '', bottomCaption: '' })
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -15,16 +16,20 @@ function MemeBuildContainer({ selectedMeme }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // setCaption(e.target.value)
+    setUserSave(true)
   }
+
+  const handleFormReset = () => {
+    setCaption({ topCaption: '', bottomCaption: '' });
+  };
+
 
 
   return (
     <div>
       <h2>MemeBuildContainer</h2>
-      <p> This would contain the form and image canvas</p>
       <div className='memeimage-container'>
-        <Canvas selectedMeme={selectedMeme} caption={caption} />
+        <Canvas selectedMeme={selectedMeme} caption={caption} userSave={userSave} setUserSave={setUserSave} />
       </div>
       <form className='caption-form' onSubmit={handleSubmit}>
         <input
@@ -41,7 +46,8 @@ function MemeBuildContainer({ selectedMeme }) {
           value={caption.bottomCaption}
           onChange={handleChange}
         />
-        <button type='submit'>Submit</button>
+        <button type='submit'>Download Meme</button>
+        <button type="reset"  onClick={handleFormReset}>Clear Text</button>
       </form>
     </div>
   )
