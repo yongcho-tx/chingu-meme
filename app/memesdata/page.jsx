@@ -11,7 +11,7 @@ export default async function MemesData() {
   return (
     <div>
       <h1>This is Memes Page/ Route</h1>
-      {memeData.map((meme) => {
+      {/* {memeData.map((meme) => {
         return (
           <div>
             <Image
@@ -23,7 +23,7 @@ export default async function MemesData() {
             />
           </div>
         )
-      })}
+      })} */}
     </div>
   )
 }

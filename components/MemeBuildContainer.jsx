@@ -2,16 +2,9 @@
 
 import React, { useState } from 'react'
 import Image from 'next/image'
-// import dynamic from 'next/dynamic'
 import Canvas from './Canvas'
 
-//https://creative-coding.decontextualize.com/text-and-type/
-
 function MemeBuildContainer({ selectedMeme }) {
-  // Will only import `react-p5` on client-side
-  // const Sketch = dynamic(() => import('react-p5').then((mod) => mod.default), {
-  //   ssr: false,
-  // })
   console.log(selectedMeme)
   const [caption, setCaption] = useState({ topCaption: '', bottomCaption: '' })
 
@@ -26,19 +19,12 @@ function MemeBuildContainer({ selectedMeme }) {
   }
 
 
-
-
-
-
   return (
     <div>
       <h2>MemeBuildContainer</h2>
       <p> This would contain the form and image canvas</p>
       <div className='memeimage-container'>
-<Canvas selectedMeme={selectedMeme} caption={caption} />
-        {/* 
-        <h2 className='top-caption'>{caption.topCaption}</h2>
-        <h2 className='bottom-caption'>{caption.bottomCaption}</h2> */}
+        <Canvas selectedMeme={selectedMeme} caption={caption} />
       </div>
       <form className='caption-form' onSubmit={handleSubmit}>
         <input
