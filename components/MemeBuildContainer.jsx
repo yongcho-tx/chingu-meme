@@ -1,13 +1,11 @@
 'use client'
 
 import React, { useState } from 'react'
-import Image from 'next/image'
 import Canvas from './Canvas'
 
 function MemeBuildContainer({ selectedMeme }) {
   const [userSave, setUserSave] = useState(false)
   const [caption, setCaption] = useState({ topCaption: '', bottomCaption: '' })
-  
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -20,16 +18,19 @@ function MemeBuildContainer({ selectedMeme }) {
   }
 
   const handleFormReset = () => {
-    setCaption({ topCaption: '', bottomCaption: '' });
-  };
-
-
+    setCaption({ topCaption: '', bottomCaption: '' })
+  }
 
   return (
     <div>
-      <h2>MemeBuildContainer</h2>
-      <div className='memeimage-container'>
-        <Canvas selectedMeme={selectedMeme} caption={caption} userSave={userSave} setUserSave={setUserSave} />
+      <h2 style={{ margin: '1em 0 1em 0' }}>MemeBuildContainer</h2>
+      <div className='meme-image-container'>
+        <Canvas
+          selectedMeme={selectedMeme}
+          caption={caption}
+          userSave={userSave}
+          setUserSave={setUserSave}
+        />
       </div>
       <form className='caption-form' onSubmit={handleSubmit}>
         <input
@@ -47,7 +48,9 @@ function MemeBuildContainer({ selectedMeme }) {
           onChange={handleChange}
         />
         <button type='submit'>Download Meme</button>
-        <button type="reset"  onClick={handleFormReset}>Clear Text</button>
+        <button type='reset' onClick={handleFormReset}>
+          Clear Text
+        </button>
       </form>
     </div>
   )

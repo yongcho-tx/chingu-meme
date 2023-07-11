@@ -42,9 +42,9 @@ const Navbar = () => {
     <AppBar position='static'>
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
-          <EmojiEmotionsIcon
+          {/* <EmojiEmotionsIcon
             sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
-          />
+          /> */}
           <Typography
             variant='h6'
             noWrap
@@ -60,7 +60,7 @@ const Navbar = () => {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            Memegen
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -92,17 +92,13 @@ const Navbar = () => {
               }}
             >
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign='center' component={Link} href='/about'>
-                  About
+                <Typography textAlign='center' component={Link} href='/'>
+                  Home
                 </Typography>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography
-                  textAlign='center'
-                  component={Link}
-                  href='/memesdata'
-                >
-                  Memes
+                <Typography textAlign='center' component={Link} href='/about'>
+                  About
                 </Typography>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
@@ -112,9 +108,9 @@ const Navbar = () => {
               </MenuItem>
             </Menu>
           </Box>
-          <EmojiEmotionsIcon
+          {/* <EmojiEmotionsIcon
             sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}
-          />
+          /> */}
           <Typography
             variant='h5'
             noWrap
@@ -131,7 +127,7 @@ const Navbar = () => {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            Memegen
           </Typography>
 
           {/* //Desktop Menu */}
@@ -140,17 +136,17 @@ const Navbar = () => {
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}
               component={Link}
-              href='/about'
+              href='/'
             >
-              About
+              Home
             </Button>
             <Button
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}
               component={Link}
-              href='/memesdata'
+              href='/about'
             >
-              Memes
+              About
             </Button>
             <Button
               onClick={handleCloseNavMenu}
