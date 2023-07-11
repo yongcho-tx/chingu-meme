@@ -100,11 +100,11 @@ a {
   text-decoration: none;
 }
 
-.memeimage-container {
+.meme-image-container {
   display: flex;
 }
 
-.memeimage-container > h2 {
+.meme-image-container > h2 {
   position: absolute;
   width: 70%;
   text-align: center;
@@ -119,31 +119,64 @@ a {
   text-shadow: 0px 0px 20px black;
 }
 
-.top-caption {
-  align-self: flex-start;
-}
-
-.bottom-caption {
-  align-self: flex-end;
-}
-
 .caption-form {
-  width: 40%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
+  margin-top: 1em;
 }
 
 .caption-form > input {
-  width: 100%;
+  width: 300px;
   height: 30px;
+  margin-bottom: 1em;
+  padding: 1em;
+}
+
+.form-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-top: 1em;
+}
+.form-button-container > button {
+  width: 300px;
+  height: 30px;
+  margin-bottom: 1em;
+  /* padding: em; */
+}
+.carousel-container {
+  margin-bottom: 3em;
+}
+
+.carousel-button-container {
   margin: 0.5em;
-  padding-top: 5px;
-  padding-bottom: 5px;
+}
+
+.carousel-button-container > button {
+  margin: 1em;
+  width: 100px;
+  height: 50px;
+}
+
+.carousel-button-container > button:hover {
+  color: red;
+}
+
+.carousel-image-container > img:hover {
+  transform: scale(1.5);
+  cursor: pointer;
 }
 
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .carousel-image-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 }

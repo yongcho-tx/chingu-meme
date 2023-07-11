@@ -2,13 +2,11 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import Avatar from '@mui/material/Avatar'
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import Container from '@mui/material/Container'
 import MenuItem from '@mui/material/MenuItem'
 import Button from '@mui/material/Button'
-import Tooltip from '@mui/material/Tooltip'
 import Menu from '@mui/material/Menu'
 import Typography from '@mui/material/Typography'
 import IconButton from '@mui/material/IconButton'
@@ -16,35 +14,23 @@ import Box from '@mui/material/Box'
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions'
 import MenuIcon from '@mui/icons-material/Menu'
 
-const pages = ['About', 'Memes']
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
-
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null)
-  const [anchorElUser, setAnchorElUser] = useState(null)
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget)
   }
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget)
-  }
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null)
-  }
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null)
   }
 
   return (
     <AppBar position='static'>
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
-          <EmojiEmotionsIcon
+          {/* <EmojiEmotionsIcon
             sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
-          />
+          /> */}
           <Typography
             variant='h6'
             noWrap
@@ -60,7 +46,7 @@ const Navbar = () => {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            Memegen
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -92,17 +78,13 @@ const Navbar = () => {
               }}
             >
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign='center' component={Link} href='/about'>
-                  About
+                <Typography textAlign='center' component={Link} href='/'>
+                  Home
                 </Typography>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography
-                  textAlign='center'
-                  component={Link}
-                  href='/memesdata'
-                >
-                  Memes
+                <Typography textAlign='center' component={Link} href='/about'>
+                  About
                 </Typography>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
@@ -112,9 +94,9 @@ const Navbar = () => {
               </MenuItem>
             </Menu>
           </Box>
-          <EmojiEmotionsIcon
+          {/* <EmojiEmotionsIcon
             sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}
-          />
+          /> */}
           <Typography
             variant='h5'
             noWrap
@@ -131,11 +113,25 @@ const Navbar = () => {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            Memegen
           </Typography>
 
           {/* //Desktop Menu */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              justifyContent: 'right',
+              display: { xs: 'none', md: 'flex' },
+            }}
+          >
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: 'white', display: 'block' }}
+              component={Link}
+              href='/'
+            >
+              Home
+            </Button>
             <Button
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}
@@ -148,47 +144,10 @@ const Navbar = () => {
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}
               component={Link}
-              href='/memesdata'
-            >
-              Memes
-            </Button>
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: 'white', display: 'block' }}
-              component={Link}
               href='/contact'
             >
               Contact
             </Button>
-          </Box>
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title='Open settings'>
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt='Remy Sharp' src='/static/images/avatar/2.jpg' />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id='menu-appbar'
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign='center'>{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
           </Box>
         </Toolbar>
       </Container>

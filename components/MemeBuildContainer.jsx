@@ -1,13 +1,14 @@
 'use client'
 
 import React, { useState } from 'react'
-import Image from 'next/image'
 import Canvas from './Canvas'
+import Button from '@mui/material/Button'
+import ClearIcon from '@mui/icons-material/Clear'
+import Input from '@mui/material/Input'
 
 function MemeBuildContainer({ selectedMeme }) {
   const [userSave, setUserSave] = useState(false)
   const [caption, setCaption] = useState({ topCaption: '', bottomCaption: '' })
-  
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -20,19 +21,23 @@ function MemeBuildContainer({ selectedMeme }) {
   }
 
   const handleFormReset = () => {
-    setCaption({ topCaption: '', bottomCaption: '' });
-  };
-
-
+    setCaption({ topCaption: '', bottomCaption: '' })
+  }
 
   return (
     <div>
-      <h2>MemeBuildContainer</h2>
-      <div className='memeimage-container'>
-        <Canvas selectedMeme={selectedMeme} caption={caption} userSave={userSave} setUserSave={setUserSave} />
+      <h2 style={{ margin: '1em 0 1em 0' }}>MemeBuildContainer</h2>
+      <div className='meme-image-container'>
+        <Canvas
+          selectedMeme={selectedMeme}
+          caption={caption}
+          userSave={userSave}
+          setUserSave={setUserSave}
+        />
       </div>
       <form className='caption-form' onSubmit={handleSubmit}>
         <input
+          color='secondary'
           type='text'
           name='topCaption'
           placeholder='Top Caption'
@@ -46,8 +51,19 @@ function MemeBuildContainer({ selectedMeme }) {
           value={caption.bottomCaption}
           onChange={handleChange}
         />
-        <button type='submit'>Download Meme</button>
-        <button type="reset"  onClick={handleFormReset}>Clear Text</button>
+        <div className='form-button-container'>
+          <Button variant='outlined' type='submit'>
+            Download Meme
+          </Button>
+          <Button
+            variant='outlined'
+            startIcon={<ClearIcon />}
+            stype='reset'
+            onClick={handleFormReset}
+          >
+            Clear Text
+          </Button>
+        </div>
       </form>
     </div>
   )
