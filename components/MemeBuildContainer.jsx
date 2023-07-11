@@ -2,6 +2,9 @@
 
 import React, { useState } from 'react'
 import Canvas from './Canvas'
+import Button from '@mui/material/Button'
+import ClearIcon from '@mui/icons-material/Clear'
+import Input from '@mui/material/Input'
 
 function MemeBuildContainer({ selectedMeme }) {
   const [userSave, setUserSave] = useState(false)
@@ -34,6 +37,7 @@ function MemeBuildContainer({ selectedMeme }) {
       </div>
       <form className='caption-form' onSubmit={handleSubmit}>
         <input
+          color='secondary'
           type='text'
           name='topCaption'
           placeholder='Top Caption'
@@ -47,10 +51,19 @@ function MemeBuildContainer({ selectedMeme }) {
           value={caption.bottomCaption}
           onChange={handleChange}
         />
-        <button type='submit'>Download Meme</button>
-        <button type='reset' onClick={handleFormReset}>
-          Clear Text
-        </button>
+        <div className='form-button-container'>
+          <Button variant='outlined' type='submit'>
+            Download Meme
+          </Button>
+          <Button
+            variant='outlined'
+            startIcon={<ClearIcon />}
+            stype='reset'
+            onClick={handleFormReset}
+          >
+            Clear Text
+          </Button>
+        </div>
       </form>
     </div>
   )

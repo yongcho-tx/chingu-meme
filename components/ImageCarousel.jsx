@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
+import Button from '@mui/material/Button'
 
 function ImageCarousel({ memeData, onImgClick }) {
   const [memeIndex, setMemeIndex] = useState(0)
@@ -40,19 +41,31 @@ function ImageCarousel({ memeData, onImgClick }) {
       <div className='carousel-image-container'>{meme}</div>
       <div className='carousel-button-container'>
         {memeIndex > 0 && (
-          <button style={{ margin: '.5em' }} onClick={handlePrevious}>
+          <Button
+            variant='outlined'
+            style={{ margin: '.5em' }}
+            onClick={handlePrevious}
+          >
             Previous {chunkSize}
-          </button>
+          </Button>
         )}
 
         {memeIndex < memeData.length - chunkSize ? (
-          <button className='next-button' onClick={handleNext}>
+          <Button
+            variant='contained'
+            className='next-button'
+            onClick={handleNext}
+          >
             Next {chunkSize}
-          </button>
+          </Button>
         ) : (
-          <button classname='first-button' onClick={handleNext}>
+          <Button
+            variant='contained'
+            classname='first-button'
+            onClick={handleNext}
+          >
             Back to first
-          </button>
+          </Button>
         )}
       </div>
     </div>

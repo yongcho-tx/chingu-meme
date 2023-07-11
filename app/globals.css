@@ -126,14 +126,25 @@ a {
   margin-top: 1em;
 }
 
-.caption-form > input,
-button {
+.caption-form > input {
   width: 300px;
   height: 30px;
   margin-bottom: 1em;
-  /* padding: 2em; */
+  padding: 1em;
 }
 
+.form-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-top: 1em;
+}
+.form-button-container > button {
+  width: 300px;
+  height: 30px;
+  margin-bottom: 1em;
+  /* padding: em; */
+}
 .carousel-container {
   margin-bottom: 3em;
 }
