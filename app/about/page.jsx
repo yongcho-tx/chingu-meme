@@ -41,12 +41,18 @@ const About = () => {
       </Typography>
       <div className='about-image-container'>
         <div className='about-developer-container'>
-          <Image
-            src={dianaImg}
-            width={240}
-            height={240}
-            style={{ marginBottom: '1em', borderRadius: '1em' }}
-          />
+          <Link
+            href='https://www.linkedin.com/in/diana-c-jordan/'
+            target='_blank'
+          >
+            <Image
+              src={dianaImg}
+              width={240}
+              height={240}
+              style={{ marginBottom: '1em', borderRadius: '1em' }}
+              alt='diana-image'
+            />
+          </Link>
           <div>
             <p>
               Meet Diana, a recent Flatiron grad!: Embracing casual learning
@@ -57,15 +63,21 @@ const About = () => {
           </div>
         </div>
         <div className='about-developer-container'>
-          <Image
-            src={yongImg}
-            width={240}
-            height={240}
-            style={{ marginBottom: '1em', borderRadius: '1em' }}
-          />
+          <Link
+            href='https://www.linkedin.com/in/yong-cho-dev/'
+            target='_blank'
+          >
+            <Image
+              src={yongImg}
+              width={240}
+              height={240}
+              style={{ marginBottom: '1em', borderRadius: '1em' }}
+              alt='yong-image'
+            />
+          </Link>
           <p>
-            Yong enjoys making useful apps, fun apps, and learning something
-            new.
+            Meet Yong, who enjoys making useful apps, fun apps, and learning
+            something new.
           </p>
         </div>
       </div>
