@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Button from '@mui/material/Button'
+import ImageList from '@mui/material/ImageList'
 
 function ImageCarousel({ memeData, onImgClick }) {
   const [memeIndex, setMemeIndex] = useState(0)

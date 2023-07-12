@@ -87,11 +87,11 @@ const Navbar = () => {
                   About
                 </Typography>
               </MenuItem>
-              <MenuItem onClick={handleCloseNavMenu}>
+              {/* <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign='center' component={Link} href='/contact'>
                   Contact
                 </Typography>
-              </MenuItem>
+              </MenuItem> */}
             </Menu>
           </Box>
           {/* <EmojiEmotionsIcon
@@ -140,14 +140,14 @@ const Navbar = () => {
             >
               About
             </Button>
-            <Button
+            {/* <Button
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}
               component={Link}
               href='/contact'
             >
               Contact
-            </Button>
+            </Button> */}
           </Box>
         </Toolbar>
       </Container>
