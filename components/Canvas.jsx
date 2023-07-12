@@ -34,6 +34,10 @@ function Canvas({ selectedMeme, caption, userSave, setUserSave }) {
     p5.image(img, 0, 0, canvasWidth, canvasHeight);
     p5.redraw()
     p5.strokeWeight(2)
+    const textAreaMargin = 2
+    const textAreaWidth = canvasWidth - (textAreaMargin * 2)
+
+
 
     let topFontSize = 32
     p5.textSize(topFontSize);
@@ -41,7 +45,9 @@ function Canvas({ selectedMeme, caption, userSave, setUserSave }) {
     p5.fill(255);
     p5.stroke(51)
     p5.textLeading(topFontSize)
-    p5.text(caption.topCaption, 2, 2, canvasWidth-4, canvasHeight)
+    p5.text(caption.topCaption, textAreaMargin, textAreaMargin, textAreaWidth, canvasHeight)
+
+
 
     let bottomFontSize = 32
     p5.textSize(bottomFontSize);
@@ -49,16 +55,34 @@ function Canvas({ selectedMeme, caption, userSave, setUserSave }) {
     p5.fill(255);
     p5.stroke(51)
     p5.textLeading(bottomFontSize)
-    let bottomWidth = p5.textWidth(caption.bottomCaption)
+    const bottomText = caption.bottomCaption
+    let bottomTextLength = p5.textWidth(bottomText)
     let bottomPosition
-    if (bottomWidth > 300) {
-      const adjustPos = Math.ceil((bottomWidth -canvasWidth)/ canvasWidth) * bottomFontSize
-      console.log(bottomWidth , adjustPos)
-      bottomPosition = canvasHeight - adjustPos - 2
+    if (bottomTextLength > textAreaWidth) {
+
+//  for (let i = 0; i < bottomTextLength; i++) {
+//         const text = caption.bottomCaption[i];
+//         const textWidth = p5.textWidth(text)
+//         if (textWidth > textAreaWidth) {
+//           bottomFontSize = bottomFontSize - 1
+//           p5.textSize(bottomFontSize);
+//           bottomTextLength = p5.textWidth(caption.bottomCaption)
+//         }
+//       }
+      
+for (let i = 0; i < bottomTextLength; i++) {
+  console.log(bottomText[i]);
+}
+
+
+
+      const adjustPos = Math.ceil((bottomTextLength -canvasWidth)/ canvasWidth) * bottomFontSize
+      console.log(bottomTextLength , adjustPos)
+      bottomPosition = canvasHeight - adjustPos - textAreaMargin
     } else {
-      bottomPosition = canvasHeight - 2
+      bottomPosition = canvasHeight - textAreaMargin
     }
-    p5.text(caption.bottomCaption, 2, bottomPosition, canvasWidth-4)
+    p5.text(caption.bottomCaption, textAreaMargin, bottomPosition, textAreaWidth)
 
     if (userSave === true) {
       p5.save('meme.png');
