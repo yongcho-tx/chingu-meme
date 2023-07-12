@@ -61,7 +61,7 @@ function ImageCarousel({ memeData, onImgClick }) {
         ) : (
           <Button
             variant='contained'
-            classname='first-button'
+            className='first-button'
             onClick={handleNext}
           >
             Back to first

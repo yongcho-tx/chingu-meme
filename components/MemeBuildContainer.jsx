@@ -26,7 +26,7 @@ function MemeBuildContainer({ selectedMeme }) {
 
   return (
     <div>
-      <h2 style={{ margin: '1em 0 1em 0' }}>MemeBuildContainer</h2>
+      <h2 style={{ margin: '1em 0 1em 0' }}>Add Text to Your Meme</h2>
       <div className='meme-image-container'>
         <Canvas
           selectedMeme={selectedMeme}
@@ -36,6 +36,7 @@ function MemeBuildContainer({ selectedMeme }) {
         />
       </div>
       <form className='caption-form' onSubmit={handleSubmit}>
+      <label htmlFor='topCaption'>Top Caption:</label>
         <input
           color='secondary'
           type='text'
@@ -44,6 +45,7 @@ function MemeBuildContainer({ selectedMeme }) {
           value={caption.topCaption}
           onChange={handleChange}
         />
+        <label htmlFor='bottomCaption'>Bottom Caption:</label>
         <input
           type='text'
           name='bottomCaption'
